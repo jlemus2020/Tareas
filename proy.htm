@@ -1,0 +1,150 @@
+   <script>
+    var miClaseValidar = {
+                    
+                        literal: function() 
+                        
+                            { 
+                                const precioBase = 250;
+                                var cliente = document.getElementById("cliente").value;
+                                 var conyugue = document.getElementById("nombreconyugue").value;
+                                var edadprincipal = document.getElementById("edadprincipal").value;
+
+                                  var edadconyugue = document.getElementById("edadconyugue").value;
+
+                                      var numerohijos = document.getElementById("numerohijos").value;
+
+                                      var recargohijos = (precioBase*0.1)*numerohijos;
+
+                                document.getElementById("recargosporhijos").innerHTML = recargohijos;     
+
+                                document.getElementById("conyugue").innerHTML = conyugue; 
+                                
+                                
+                                document.getElementById("caracter").innerHTML = cliente;
+
+                                  document.getElementById("cargobase").innerHTML = precioBase;     
+
+                          if (edadprincipal<18) { document.getElementById("nopuedeasegurarse").innerHTML = 'NO SE PUEDE ASEGURAR'; } else
+                          { document.getElementById("nopuedeasegurarse").innerHTML = 'ESTA APTO PARA ASEGURARCE ';  }
+if (edadprincipal>=18 &&  edadprincipal<=21) { conyu2 =  0;  document.getElementById("cargos").innerHTML = 0; } else
+if (edadprincipal>=21 && edadprincipal<=25) { conyu2 =(precioBase*0.1);  document.getElementById("cargos").innerHTML =   (precioBase*0.1); } else
+if (edadprincipal>=25 && edadprincipal<=30) { conyu2 =(precioBase*0.2);  document.getElementById("cargos").innerHTML =   (precioBase*0.2); } else
+if (edadprincipal>=30 && edadprincipal<=40) {conyu2 =(precioBase*0.5);   document.getElementById("cargos").innerHTML =   (precioBase*0.5); } else
+if (edadprincipal>=40 && edadprincipal<=50) { conyu2 =(precioBase*0.8);  document.getElementById("cargos").innerHTML =  (precioBase*0.8); } else
+if (edadprincipal>=50 && edadprincipal<=65) { conyu2 =(precioBase*0.12);  document.getElementById("cargos").innerHTML =  (precioBase*0.12); } else
+if (edadprincipal>65) {   document.getElementById("nopuedeasegurarse").innerHTML = 'YA NO SE PUEDE ASEGURAR ...'; }
+
+
+  if (edadconyugue<30 ) { conyu =  (precioBase*0.1);   document.getElementById("cargosconyugue").innerHTML = (precioBase*0.1); } else
+    if (edadconyugue>=30 &&  edadconyugue<=40 ) {  conyu =  (precioBase*0.2);   document.getElementById("cargosconyugue").innerHTML = (precioBase*0.2); } else
+     if (edadconyugue>=40 &&  edadconyugue<=50 ) { conyu =  (precioBase*0.3);  document.getElementById("cargosconyugue").innerHTML = (precioBase*0.3); } else
+     if (edadconyugue>=50 &&  edadconyugue<=70 ) { conyu =  (precioBase*0.5);  document.getElementById("cargosconyugue").innerHTML = (precioBase*0.5); } 
+
+                       
+
+                                  document.getElementById("total").innerHTML = (precioBase+recargohijos+ conyu+conyu2);
+                                               
+
+
+                            }               
+                }
+
+
+</script>
+
+<style type="text/css">
+    
+   .diseno {
+      background: navy;
+      color: white;
+      font-size: 25px;
+      border-radius: 10px 10px 10px 10px;
+
+
+   }
+
+
+   .titulos {
+      background: brown;
+      color: white;
+      font-size: 25px;
+      border-radius: 10px 10px 10px 10px;
+
+
+   }
+
+
+      .diseno2 {
+      background: red;
+      color: white;
+      text-align: right;
+      size: 18px;
+       border-radius: 10px 10px 10px 10px;
+
+
+   }
+
+
+   .diseno3 {
+      background: black;
+      color: white;
+      text-align: right;
+      font-size: 18px;
+       border-radius: 10px 10px 10px 10px;
+
+   }
+
+
+
+.diseno31 {
+      background: black;
+      color: white;
+      text-align: right;
+      font-size: 18px;
+       border-radius: 10px 10px 10px 10px;
+       cursor: pointer;
+       
+   }
+
+
+
+
+</style>>
+
+
+
+
+    <form id="miForm" action="" method="POST" onsubmit="return miClaseValidar.literal();" >
+             <table border="0" align="center" width="80%" cellspacing="10" cellpadding="10" >
+                  <CAPTION class="titulos">   INGRESANDO DATOS PARA PODER <br> REALIZAR LA COTIZACION DEL SEGURO </CAPTION>
+          
+          <tr> <td class="diseno2">NOMBRE DEL CLIENTE </td>  <td class="diseno" width="10%">    <input type="text"  class="diseno" id="cliente" /> </td> </tr>
+     <tr> <td class="diseno2">EDAD DEL ASEGURADO PRINCIPAL </td >  <td class="diseno" width="10%">   <input type="text" size="2" class="diseno" id="edadprincipal" /> </td> </tr>
+      <tr> <td class="diseno2">NOMBRE DEL CONYUGUE </td>  <td class="diseno" width="10%">   <input type="text" class="diseno" id="nombreconyugue" /> </td> </tr>
+      <tr> <td class="diseno2">EDAD DEL CONYUGUE </td>  <td class="diseno" width="10%">   <input type="text"  class="diseno" size="2" id="edadconyugue" /> </td> </tr>
+      <tr> <td class="diseno2">CANTIDAD DE HIJOS</td>  <td class="diseno" width="10%">   <input type="text" size="2" class="diseno" id="numerohijos" /> </td> </tr>
+
+
+        <tr> <td colspan="2" align="center"><span title="Puede hacer clic aqui para ver los resultados"><input type="button" 
+            value="CLIC AQUI PARA REALIZAR SUS CALCULOS" class="diseno31" onclick="miClaseValidar.literal()">   </td></tr>     
+     
+            </form>
+
+
+     
+            <table border="0"  align="center" cellspacing="10" cellpadding="10">
+                <CAPTION class="titulos">   RESULTADOS DE LA COTIZACION </CAPTION>
+             
+             <tr> <td class="diseno3">NOMBRE DEL CLIENTE </td>  <td class="diseno3">   <div id="caracter"></div> </td> </tr>
+             <tr> <td class="diseno3">MENSAJE IMPORTANTE  </td>  <td class="diseno3">   <div id="nopuedeasegurarse"></div> </td> </tr>
+            <tr> <td class="diseno3">NOMBRE DEL CONYUGUE  </td>  <td class="diseno3">   <div id="conyugue"></div> </td> </tr>
+            <tr> <td class="diseno3">CARGO BASE  </td>  <td class="diseno3">   <div id="cargobase"></div> </td> </tr>            
+             <tr> <td class="diseno3">CARGOS PRINCIPALES  </td>  <td class="diseno3">   <div id="cargos"></div> </td> </tr>
+               <tr> <td class="diseno3">CARGOS CONYUGUE </td>  <td class="diseno3">   <div id="cargosconyugue"></div> </td> </tr>
+               <tr> <td class="diseno3">CARGOS POR HIJOS </td>  <td class="diseno3">   <div id="recargosporhijos"></div> </td> </tr>
+                <tr> <td class="diseno3">TOTAL DE A PAGAR </td>  <td class="diseno3">   <div id="total"></div> </td> </tr>
+
+
+            </table>
+
+  
